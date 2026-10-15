@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" fill="none">
+  <defs>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="60%" y2="100%">
+      <stop offset="0%" stop-color="#60A5FA"/>
+      <stop offset="100%" stop-color="#1D4ED8"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="320" height="320" rx="32" fill="#0F172A"/>
+
+  <!--
+    Left speech bubble (blue):
+    Circle centered ~105,105 r=72, with a downward-pointing tail at bottom-right of circle
+  -->
+  <path d="
+    M 105 40
+    C 65 40 33 72 33 112
+    C 33 140 48 164 71 177
+    L 60 210
+    L 105 185
+    C 105 185 105 185 105 185
+    C 145 185 177 153 177 113
+    C 177 73 145 40 105 40 Z
+  " fill="url(#blueGrad)"/>
+
+  <!--
+    Right speech bubble (white/cream):
+    Circle centered ~195,105 r=68, tail at bottom-left overlapping with blue
+  -->
+  <path d="
+    M 195 48
+    C 157 48 127 78 127 116
+    C 127 145 144 170 169 182
+    L 158 215
+    L 210 190
+    C 227 190 243 185 255 174
+    C 271 160 281 140 281 117
+    C 281 79 241 48 195 48 Z
+  " fill="#EEF2FF" opacity="0.88"/>
+
+  <!-- ALLY wordmark -->
+  <text
+    x="160"
+    y="278"
+    font-family="'Inter', 'Helvetica Neue', Arial, sans-serif"
+    font-size="58"
+    font-weight="800"
+    fill="white"
+    text-anchor="middle"
+    letter-spacing="8"
+  >ALLY</text>
+</svg>
