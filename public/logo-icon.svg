@@ -1,12 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 140" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" fill="none">
   <defs>
-    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="60%" y2="100%">
+    <linearGradient id="bg" x1="0" y1="0" x2="60" y2="60" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1a2a6c"/>
+      <stop offset="100%" stop-color="#0d1b4b"/>
+    </linearGradient>
+    <linearGradient id="hand" x1="0" y1="0" x2="60" y2="50" gradientUnits="userSpaceOnUse">
       <stop offset="0%" stop-color="#60A5FA"/>
-      <stop offset="100%" stop-color="#1D4ED8"/>
+      <stop offset="100%" stop-color="#ffffff"/>
     </linearGradient>
   </defs>
-  <!-- Left bubble -->
-  <path d="M 58 4 C 28 4 4 28 4 58 C 4 78 14 95 30 105 L 22 132 L 62 110 C 60 110 58 110 58 110 C 88 110 112 86 112 56 C 112 26 88 4 58 4 Z" fill="url(#blueGrad)"/>
-  <!-- Right bubble -->
-  <path d="M 98 12 C 70 12 48 34 48 62 C 48 82 59 99 76 108 L 68 133 L 112 112 C 124 112 135 107 143 99 C 153 88 158 74 158 60 C 158 34 131 12 98 12 Z" fill="#EEF2FF" opacity="0.88"/>
+  <rect width="60" height="60" rx="13" fill="url(#bg)"/>
+  <!-- Heart -->
+  <path d="M30 47 C30 47 10 35 10 21 C10 14 15 9 21 9 C25 9 28 12 30 16 C32 12 35 9 39 9 C45 9 50 14 50 21 C50 35 30 47 30 47Z"
+        stroke="url(#hand)" stroke-width="3.5" fill="none" stroke-linejoin="round"/>
+  <!-- Handshake -->
+  <line x1="18" y1="27" x2="27" y2="31" stroke="url(#hand)" stroke-width="3" stroke-linecap="round"/>
+  <line x1="42" y1="27" x2="33" y2="31" stroke="url(#hand)" stroke-width="3" stroke-linecap="round"/>
+  <path d="M27 31 Q30 29 33 31" stroke="url(#hand)" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <line x1="17" y1="27" x2="13" y2="33" stroke="url(#hand)" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="20" y1="29" x2="17" y2="35" stroke="url(#hand)" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="43" y1="27" x2="47" y2="33" stroke="url(#hand)" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="40" y1="29" x2="43" y2="35" stroke="url(#hand)" stroke-width="2.5" stroke-linecap="round"/>
 </svg>
