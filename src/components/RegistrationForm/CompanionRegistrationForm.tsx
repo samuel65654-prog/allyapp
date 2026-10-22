@@ -51,7 +51,7 @@ export default function CompanionRegistrationForm() {
       ...prev,
       [field]: prev[field].includes(value)
         ? prev[field].filter((v) => v !== value)
-        : [...prev[field], value],
+        : field === "interests" && prev[field].length >= 3 ? prev[field] : [...prev[field], value],
     }));
   };
 
@@ -210,7 +210,7 @@ export default function CompanionRegistrationForm() {
           </div>
 
           <div>
-            <p className="text-sm text-gray-600 mb-2">Interests</p>
+            <p className="text-sm text-gray-600 mb-2">Interests <span className="text-gray-400 font-normal">(pick up to 3)</span></p>
             <div className="flex flex-wrap gap-2">
               {INTERESTS_OPTIONS.map((interest) => (
                 <button type="button" key={interest} onClick={() => toggle("interests", interest)}

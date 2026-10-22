@@ -45,7 +45,7 @@ export default function ElderlyRegistrationForm() {
       ...prev,
       interests: prev.interests.includes(interest)
         ? prev.interests.filter((i) => i !== interest)
-        : [...prev.interests, interest],
+        : prev.interests.length >= 3 ? prev.interests : [...prev.interests, interest],
     }));
   };
 
@@ -162,8 +162,13 @@ export default function ElderlyRegistrationForm() {
             <p className="text-xs text-red-500 -mt-3">Passwords do not match</p>
           )}
 
-          <input type="tel" placeholder="Phone" value={form.phone}
-            onChange={(e) => set("phone", e.target.value)} className={INPUT_CLS} />
+          <div className="flex gap-2 items-center">
+            <div className="flex items-center gap-1 px-3 py-3 border rounded-lg bg-gray-50 text-gray-600 text-sm whitespace-nowrap">
+              🇺🇸 +1
+            </div>
+            <input type="tel" placeholder="Phone number" value={form.phone}
+              onChange={(e) => set("phone", e.target.value)} className={INPUT_CLS} />
+          </div>
 
           <div className="flex gap-3">
             <select value={form.ageRange} onChange={(e) => set("ageRange", e.target.value)} required className={INPUT_CLS}>
@@ -181,7 +186,7 @@ export default function ElderlyRegistrationForm() {
           </div>
 
           <div>
-            <p className="text-sm text-gray-600 mb-2">Interests <span className="text-gray-400 font-normal">(used for matching)</span></p>
+            <p className="text-sm text-gray-600 mb-2">Interests <span className="text-gray-400 font-normal">(pick up to 3)</span></p>
             <div className="flex flex-wrap gap-2">
               {INTERESTS_OPTIONS.map((interest) => (
                 <button type="button" key={interest} onClick={() => toggleInterest(interest)}
