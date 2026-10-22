@@ -1,8 +1,6 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { useRouter } from "next/navigation";
-import AvailabilityPicker, { type Availability } from "@/components/AvailabilityPicker";
 import { useAuth } from "@/context/AuthContext";
 import type { ElderlyUser } from "@/types";
 
@@ -17,7 +15,6 @@ const INTERESTS_OPTIONS = ["Reading", "Gardening", "Music", "Movies", "Cooking",
 
 export default function ElderlyRegistrationForm() {
   const { setProfile } = useAuth();
-  const router = useRouter();
 
   const [form, setForm] = useState({
     firstName: "",
@@ -29,7 +26,7 @@ export default function ElderlyRegistrationForm() {
     ageRange: "",
     gender: "",
     interests: [] as string[],
-    availability: {} as Availability,
+    availability: {},
     personalityType: "",
     activityLevel: "",
     techComfortLevel: "",
@@ -99,17 +96,20 @@ export default function ElderlyRegistrationForm() {
 
     setProfile(elderProfile);
     setSubmitted(true);
-    setTimeout(() => router.push("/matching"), 1500);
   };
 
   if (submitted) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="bg-white p-8 rounded-xl shadow-md text-center space-y-3">
-          <div className="text-5xl">🎉</div>
-          <h2 className="text-2xl font-bold text-green-600">Profile Created!</h2>
-          <p className="text-gray-500">Finding your matches…</p>
-          <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mt-2" />
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center px-5">
+        <div className="bg-white p-8 rounded-xl shadow-md text-center space-y-4 max-w-sm mx-auto">
+          <div className="text-5xl">✅</div>
+          <h2 className="text-2xl font-bold text-green-600">Profile Uploaded!</h2>
+          <p className="text-gray-600 leading-relaxed">
+            Your profile has been submitted and is currently under review. Our team will get back to you shortly.
+          </p>
+          <div className="bg-blue-50 rounded-xl p-4 text-sm text-blue-700">
+            📬 Keep an eye on your inbox for updates from our team.
+          </div>
         </div>
       </div>
     );
@@ -195,8 +195,6 @@ export default function ElderlyRegistrationForm() {
               ))}
             </div>
           </div>
-
-          <AvailabilityPicker value={form.availability} onChange={(v) => set("availability", v)} />
 
           <div className="flex gap-3">
             <select value={form.personalityType} onChange={(e) => set("personalityType", e.target.value)} className={INPUT_CLS}>

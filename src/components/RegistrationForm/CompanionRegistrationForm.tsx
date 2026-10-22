@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useRef } from "react";
-import AvailabilityPicker, { type Availability } from "@/components/AvailabilityPicker";
 import { useAuth } from "@/context/AuthContext";
 import type { CompanionUser } from "@/types";
 
@@ -32,7 +31,7 @@ export default function CompanionRegistrationForm() {
     gender: "",
     city: "",
     interests: [] as string[],
-    availability: {} as Availability,
+    availability: {},
     personalityType: "",
     languages: [] as string[],
     techComfortLevel: "",
@@ -113,15 +112,15 @@ export default function CompanionRegistrationForm() {
 
   if (submitted) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center px-5">
         <div className="bg-white p-8 rounded-xl shadow-md text-center space-y-4 max-w-sm mx-auto">
-          <div className="text-5xl">🎉</div>
-          <h2 className="text-2xl font-bold text-green-600">Application Submitted!</h2>
+          <div className="text-5xl">✅</div>
+          <h2 className="text-2xl font-bold text-green-600">Profile Uploaded!</h2>
           <p className="text-gray-600 leading-relaxed">
-            Thank you for applying. Our team will verify your university email and details — you'll hear from us within 24 hours.
+            Your profile has been submitted and is currently under review. Our team will get back to you shortly.
           </p>
           <div className="bg-blue-50 rounded-xl p-4 text-sm text-blue-700">
-            📬 Check your <strong>.edu inbox</strong> for a confirmation email.
+            📬 Keep an eye on your inbox for updates from our team.
           </div>
         </div>
       </div>
@@ -225,8 +224,6 @@ export default function CompanionRegistrationForm() {
               ))}
             </div>
           </div>
-
-          <AvailabilityPicker value={form.availability} onChange={(v) => set("availability", v)} />
 
           <select value={form.personalityType} onChange={(e) => set("personalityType", e.target.value)} className={INPUT_CLS}>
             <option value="">Personality Type</option>

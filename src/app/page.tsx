@@ -64,7 +64,7 @@ export default function Home() {
         <div className="text-center space-y-8 w-full max-w-2xl">
           <div>
             <h2 className="text-3xl font-extrabold text-slate-800">Who are you joining as?</h2>
-            <p className="text-gray-500 mt-2">Currently serving Miami, FL.</p>
+            <p className="text-gray-500 mt-2">Serving soon in Miami, FL.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <button
@@ -113,7 +113,7 @@ export default function Home() {
         <div className="relative z-20 text-center max-w-3xl mx-auto space-y-6">
           <div className="space-y-3">
             <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-sm text-white/80">
-              📍 Now serving Miami, FL
+              📍 Serving soon in Miami, FL
             </div>
             <h1 className="text-3xl sm:text-5xl font-extrabold leading-tight tracking-tight">
               Bridging generations,{" "}
