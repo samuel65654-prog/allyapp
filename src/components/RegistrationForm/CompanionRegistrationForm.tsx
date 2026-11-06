@@ -69,6 +69,10 @@ export default function CompanionRegistrationForm() {
       alert("Please use a valid university email (.edu required).");
       return;
     }
+    if (!photoPreview) {
+      alert("Please upload a profile photo to continue.");
+      return;
+    }
     if (form.password.length < 8 || form.password.length > 12) {
       alert("Password must be between 8 and 12 characters.");
       return;
@@ -149,7 +153,7 @@ export default function CompanionRegistrationForm() {
               {photoPreview ? (
                 <img src={photoPreview} alt="Preview" className="w-full h-full object-cover" />
               ) : (
-                <span className="text-gray-400 text-xs text-center px-2">Add Photo</span>
+                <span className="text-red-400 text-xs text-center px-2">Required *</span>
               )}
             </div>
             <input ref={fileRef} type="file" accept="image/*" onChange={handlePhoto} className="hidden" />
