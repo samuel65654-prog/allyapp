@@ -25,10 +25,7 @@ export default function Navbar() {
         <div className="flex items-center gap-5 text-sm font-medium text-gray-500">
           {user ? (
             <>
-              <Link href="/matching" className="hover:text-blue-600 transition-colors">Matching</Link>
-              <Link href="/chat" className="hover:text-blue-600 transition-colors">Chat</Link>
-              <Link href="/profile" className="hover:text-blue-600 transition-colors">Profile</Link>
-              <div className="flex items-center gap-3 pl-4 border-l border-gray-200">
+              <div className="flex items-center gap-3">
                 <span className="text-gray-400 text-xs">
                   Hi, <span className="text-gray-700 font-semibold">{user.name}</span>
                 </span>
