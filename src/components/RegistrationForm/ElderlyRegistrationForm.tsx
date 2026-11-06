@@ -59,8 +59,12 @@ export default function ElderlyRegistrationForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (form.password.length < 6) {
-      alert("Password must be at least 6 characters.");
+    if (form.password.length < 8 || form.password.length > 12) {
+      alert("Password must be between 8 and 12 characters.");
+      return;
+    }
+    if (!/[A-Z]/.test(form.password)) {
+      alert("Password must contain at least one uppercase letter.");
       return;
     }
     if (form.password !== form.confirmPassword) {
@@ -154,10 +158,20 @@ export default function ElderlyRegistrationForm() {
 
           <div className="flex gap-3">
             <input type="password" placeholder="Password" value={form.password}
-              onChange={(e) => set("password", e.target.value)} required minLength={6} className={INPUT_CLS} />
+              onChange={(e) => set("password", e.target.value)} required minLength={8} maxLength={12} className={INPUT_CLS} />
             <input type="password" placeholder="Confirm Password" value={form.confirmPassword}
               onChange={(e) => set("confirmPassword", e.target.value)} required className={INPUT_CLS} />
           </div>
+          {form.password.length > 0 && (
+            <div className="text-xs -mt-3 space-y-0.5">
+              <p className={form.password.length >= 8 && form.password.length <= 12 ? "text-green-500" : "text-red-400"}>
+                {form.password.length >= 8 && form.password.length <= 12 ? "✓" : "✗"} 8–12 characters
+              </p>
+              <p className={/[A-Z]/.test(form.password) ? "text-green-500" : "text-red-400"}>
+                {/[A-Z]/.test(form.password) ? "✓" : "✗"} At least one uppercase letter
+              </p>
+            </div>
+          )}
           {form.confirmPassword && form.password !== form.confirmPassword && (
             <p className="text-xs text-red-500 -mt-3">Passwords do not match</p>
           )}
